@@ -24,13 +24,13 @@ public class AuthService {
 
     private final AuthenticationManager authenticationManager;
 
-    public AuthResponse register(RegisterRequest registerRequest){
+    public AuthResponse register(RegisterRequest registerRequest, Role role){
         var user = User
                 .builder()
                 .name(registerRequest.getName())
                 .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .role(Role.REGULAR)
+                .role(role)
                 .build();
 
         userRepository.save(user);

@@ -1,6 +1,7 @@
 package com.creswave;
 
 import com.creswave.auth.dto.RegisterRequest;
+import com.creswave.auth.entities.Role;
 import com.creswave.auth.service.AuthService;
 import com.creswave.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,8 @@ public class BlogApplication implements CommandLineRunner {
                             .name("admin")
                             .password("12345")
                             .email("admin@gmail.com")
-                            .build()
+                            .build(),
+                    Role.ADMIN
 			);
         }
 

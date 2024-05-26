@@ -23,7 +23,10 @@ public class JwtService {
         return getClaim(token, Claims::getSubject);
     }
 
-    public <T> T getClaim(String token, Function<Claims, T> claimsResolver){
+    public <T> T getClaim(
+            String token,
+            Function<Claims, T> claimsResolver
+    ){
         final Claims claims = getAllClaims(token);
         return claimsResolver.apply(claims);
     }
@@ -32,12 +35,23 @@ public class JwtService {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails){
-        return Jwts.builder().setClaims(extraClaims).setSubject(userDetails.getUsername()).setIssuedAt(new Date(System.currentTimeMillis())).setExpiration(new Date(System.currentTimeMillis() + 3600000)).signWith(getSignInKey(), SignatureAlgorithm.HS256).compact();
+    public String generateToken(
+            Map<String, Object> extraClaims,
+            UserDetails userDetails
+    ){
+        return Jwts.builder()
+                .setClaims(extraClaims)
+                .setSubject(userDetails.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000))
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
     private Claims getAllClaims(String token){
-        return Jwts.parserBuilder().setSigningKey(getSignInKey()).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignInKey())
+                .build().parseClaimsJws(token).getBody();
     }
 
     private Key getSignInKey(){

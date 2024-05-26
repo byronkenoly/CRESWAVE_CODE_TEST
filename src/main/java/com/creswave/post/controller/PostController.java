@@ -70,6 +70,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{postId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<?> deletePost(
             @PathVariable(value = "postId") Long postId,
             Principal principal

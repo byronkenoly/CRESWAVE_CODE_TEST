@@ -3,6 +3,7 @@ package com.creswave.auth.controller;
 import com.creswave.auth.dto.AuthRequest;
 import com.creswave.auth.dto.AuthResponse;
 import com.creswave.auth.dto.RegisterRequest;
+import com.creswave.auth.entities.Role;
 import com.creswave.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest registerRequest){
-        return ResponseEntity.ok(authService.register(registerRequest));
+        return ResponseEntity.ok(authService.register(registerRequest, Role.REGULAR));
     }
 
     @PostMapping("/authenticate")
