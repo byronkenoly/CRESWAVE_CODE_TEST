@@ -1,3 +1,28 @@
+## How to run application
+
+### Prerequisites
+1. Java Development Kit (JDK): Ensure you have JDK 21 installed
+2. Maven: Ensure maven is installed to manage the project's dependencies
+3. MySQL DB: Ensure MySQL v8 is installed in your machine
+4. Git: Ensure you have git installed to be able to clone the repository
+
+### Step by step instructions
+1. Clone the repository
+`git clone https://github.com/byronkenoly/CRESWAVE_CODE_TEST.git`
+
+2. Navigate to the project directory `cd CRESWAVE_CODE_TEST`
+3. Access MySQL Shell in terminal
+``` sql
+CREATE DATABASE blog;
+CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL ON blog.* TO 'your_username'@'localhost';
+```
+replace `your_username` and `your_password` with your desired username and password
+4. Change username and password in the `application.yml` file found in the path `src/main/resources/application.yml`
+5. Install dependencies `mvn clean install`.
+This will install dependencies specified in the `pom.xml` file
+6. Run the Spring Boot App `mvn spring-boot:run`
+
 ## Register User
 
 ### POST /api/auth/register
