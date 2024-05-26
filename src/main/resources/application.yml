@@ -3,7 +3,7 @@ spring:
     name: blog
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/blog
     username: admin
