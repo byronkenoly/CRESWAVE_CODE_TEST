@@ -25,6 +25,8 @@
 This will install dependencies specified in the `pom.xml` file
 6. Run the Spring Boot App `mvn spring-boot:run`
 
+## API Endpoints Documentation
+
 ## Register User
 
 ### POST /api/auth/register
