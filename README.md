@@ -11,13 +11,15 @@
 `git clone https://github.com/byronkenoly/CRESWAVE_CODE_TEST.git`
 
 2. Navigate to the project directory `cd CRESWAVE_CODE_TEST`
-3. Access MySQL Shell in terminal
-``` sql
-CREATE DATABASE blog;
-CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL ON blog.* TO 'your_username'@'localhost';
-```
-replace `your_username` and `your_password` with your desired username and password
+3. Access MySQL Shell in terminal and run the following commands:
+
+    ``` sql
+    CREATE DATABASE blog;
+    CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
+    GRANT ALL ON blog.* TO 'your_username'@'localhost';
+    ```
+   replace `your_username` and `your_password` with your desired username and password
+
 4. Change username and password in the `application.yml` file found in the path `src/main/resources/application.yml`
 5. Install dependencies `mvn clean install`.
 This will install dependencies specified in the `pom.xml` file
